@@ -126,3 +126,15 @@ const makeProductPreview = productPreviewList => (product, index) => {
 const productPreviewListWithFallback = fallbackProductPreviewList.map(makeProductPreview(productPreviewList))
 
 console.log('productPreviewListWithFallback', productPreviewListWithFallback)
+// console.log('makeProductPreview', makeProductPreview(productPreviewList))
+
+const makeMyCustomProductPreviewList = productPreviewList.map(productPreview => 
+  ({
+    ...productPreview,
+    ...productPreview.highlightLabel && getHighlightIconData(productPreview.highlightLabel),
+    image: productPreview.image ?? '/images/product-default.png',
+  })
+)
+// console.log('makeMyCustomProductPreviewList', makeMyCustomProductPreviewList)
+
+console.log('test slice', [1, 2, 3, 5, 6, 7].slice(0, 5))
